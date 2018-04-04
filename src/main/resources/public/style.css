@@ -1,0 +1,17 @@
+    
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .game {
+        margin: auto;
+        height: 25px;
+        display: block;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .game:hover {
+        color: red;
+    }
