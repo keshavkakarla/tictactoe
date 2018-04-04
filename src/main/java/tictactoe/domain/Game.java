@@ -7,13 +7,16 @@ import org.eclipse.jetty.websocket.api.Session;
 
 public class Game implements Serializable {
     
-    private Board gameBoard;
+    private final Board gameBoard;
+    @SerializedName("gameID") private final int gameID;
     private transient Pair<Session, Session> players;
+    
     @SerializedName("gameAlive") private boolean isAlive;
     private transient boolean isOpen;
     
-    public Game(Session session) {
+    public Game(int gameID, Session session) {
         this.gameBoard = new Board();
+        this.gameID = gameID;
         this.players = new Pair<>(session, null);
         this.isAlive = true;
         this.isOpen = true;

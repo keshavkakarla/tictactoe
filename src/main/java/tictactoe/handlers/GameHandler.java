@@ -9,7 +9,7 @@ import tictactoe.domain.Game;
 
 public abstract class GameHandler {
     
-    private static int gameNumber = 0;
+    private static int gameID = 0;
     private static Map<Integer, Game> games =
         new ConcurrentHashMap<>();
     
@@ -34,8 +34,8 @@ public abstract class GameHandler {
         // Do not allow a user to create more than one lobby.
         if (games.values().stream().filter(game
             -> game.getPlayers().getKey() == session).count() == 0) {
-            gameNumber++;
-            games.put(gameNumber, new Game(session));
+            gameID++;
+            games.put(gameID, new Game(gameID, session));
             updateGameList();
         }
     }
