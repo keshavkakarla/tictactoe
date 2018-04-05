@@ -10,7 +10,7 @@ import tictactoe.domain.Game;
 public abstract class GameHandler {
     
     private static int gameID = 0;
-    private static Map<Integer, Game> games =
+    private static final Map<Integer, Game> games =
         new ConcurrentHashMap<>();
     
     public static List<Game> getOpenGames() {
@@ -49,7 +49,7 @@ public abstract class GameHandler {
         try { 
             MessageHandler.sendGameUpdate(game);
         } catch (Exception ex) {
-            // Do nothing. // 
+            // Do nothing.
         }
     }
     
